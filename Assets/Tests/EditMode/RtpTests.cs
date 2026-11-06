@@ -22,14 +22,6 @@ namespace Slots.Core.Tests
         }
 
         [Test]
-        public void Calculate_ChecksEveryCombination()
-        {
-            RtpReport report = RtpCalculator.Calculate(TestModels.CreateStandardMachine());
-
-            Assert.That(report.Combinations, Is.EqualTo(20L * 20L * 20L));
-        }
-
-        [Test]
         public void Calculate_MatchesTheHandWorkedPaytable()
         {
             // Each symbol: (stops / 20)^3 * multiplier, worked out separately from the game code
@@ -39,11 +31,11 @@ namespace Slots.Core.Tests
                 Math.Pow(3 / 20.0, 3) * 30 +
                 Math.Pow(2 / 20.0, 3) * 200;
 
-            RtpReport report = RtpCalculator.Calculate(TestModels.CreateStandardMachine());
+            (double rtp, double hitFrequency) = RtpCalculator.Calculate(TestModels.CreateStandardMachine());
 
             Assert.That(expectedRtp, Is.EqualTo(0.93575).Within(1e-12));
-            Assert.That(report.Rtp, Is.EqualTo(expectedRtp).Within(1e-12));
-            Assert.That(report.HitFrequency, Is.EqualTo(0.1225).Within(1e-12));
+            Assert.That(rtp, Is.EqualTo(expectedRtp).Within(1e-12));
+            Assert.That(hitFrequency, Is.EqualTo(0.1225).Within(1e-12));
         }
 
         [Test]

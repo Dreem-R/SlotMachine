@@ -15,13 +15,10 @@ namespace Slots.Core
 
         public SlotModel(IEnumerable<ReelStrip> reels, Paytable paytable)
         {
-            if (reels == null) throw new ArgumentNullException(nameof(reels));
-
-            this.paytable = paytable ?? throw new ArgumentNullException(nameof(paytable));
             this.reels = reels.ToArray();
+            this.paytable = paytable;
 
-            if (this.reels.Length == 0) throw new ArgumentException("A machine needs at least one reel", nameof(reels));
-
+            // A symbol with no payout is a mistake in the config, so catch it at startup
             foreach (ReelStrip reel in this.reels)
             {
                 for (int stop = 0; stop < reel.Length; stop++)
@@ -42,9 +39,6 @@ namespace Slots.Core
 
         public SpinResult Resolve(IReadOnlyList<int> stops)
         {
-            if (stops == null) throw new ArgumentNullException(nameof(stops));
-            if (stops.Count != reels.Length) throw new ArgumentException("Expected one stop per reel", nameof(stops));
-
             int[] centerSymbols = new int[reels.Length];
             for (int i = 0; i < reels.Length; i++)
             {
@@ -54,12 +48,9 @@ namespace Slots.Core
             int firstSymbol = centerSymbols[0];
             bool allMatch = centerSymbols.All(symbol => symbol == firstSymbol);
 
-            // Copied because the caller may reuse its array, and a result must never change
-            int[] stopsCopy = stops.ToArray();
-
             return allMatch
-                ? new SpinResult(stopsCopy, centerSymbols, firstSymbol, paytable.MultiplierFor(firstSymbol))
-                : new SpinResult(stopsCopy, centerSymbols, SpinResult.NoSymbol, 0);
+                ? new SpinResult(stops, centerSymbols, firstSymbol, paytable.MultiplierFor(firstSymbol))
+                : new SpinResult(stops, centerSymbols, SpinResult.NoSymbol, 0);
         }
     }
 }

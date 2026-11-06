@@ -11,8 +11,6 @@ namespace Slots.Core
 
         public Wallet(int startingBalance)
         {
-            if (startingBalance < 0) throw new ArgumentOutOfRangeException(nameof(startingBalance));
-
             Balance = startingBalance;
         }
 
@@ -23,7 +21,6 @@ namespace Slots.Core
 
         public bool TryDebit(int amount)
         {
-            if (amount <= 0) throw new ArgumentOutOfRangeException(nameof(amount));
             if (!CanAfford(amount)) return false;
 
             Balance -= amount;
@@ -33,8 +30,6 @@ namespace Slots.Core
 
         public void Credit(int amount)
         {
-            if (amount <= 0) throw new ArgumentOutOfRangeException(nameof(amount));
-
             Balance += amount;
             OnBalanceChanged?.Invoke(this, EventArgs.Empty);
         }

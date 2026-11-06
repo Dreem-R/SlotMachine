@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -13,11 +12,7 @@ namespace Slots.Core
 
         public ReelStrip(IEnumerable<int> symbols)
         {
-            if (symbols == null) throw new ArgumentNullException(nameof(symbols));
-
             this.symbols = symbols.ToArray();
-
-            if (this.symbols.Length == 0) throw new ArgumentException("A reel strip needs at least one stop", nameof(symbols));
         }
 
         public int SymbolAt(int stop)

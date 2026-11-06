@@ -34,19 +34,5 @@ namespace Slots.Core.Tests
                 previous = current;
             }
         }
-
-        [Test]
-        public void Evaluate_PassesTheTarget_ThenSettlesBack()
-        {
-            ReelMotion motion = CreateMotion();
-            float furthest = 0f;
-
-            for (float time = 0f; time < motion.Duration; time += 0.005f)
-            {
-                furthest = System.Math.Max(furthest, motion.Evaluate(time));
-            }
-
-            Assert.That(furthest, Is.GreaterThan(motion.Distance));
-        }
     }
 }

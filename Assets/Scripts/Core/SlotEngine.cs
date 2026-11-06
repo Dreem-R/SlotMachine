@@ -1,5 +1,3 @@
-using System;
-
 namespace Slots.Core
 {
     // Decides spin results, one random stop per reel
@@ -10,8 +8,8 @@ namespace Slots.Core
 
         public SlotEngine(SlotModel model, IRandomSource random)
         {
-            this.model = model ?? throw new ArgumentNullException(nameof(model));
-            this.random = random ?? throw new ArgumentNullException(nameof(random));
+            this.model = model;
+            this.random = random;
         }
 
         public SpinResult Spin()

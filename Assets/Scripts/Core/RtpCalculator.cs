@@ -1,14 +1,11 @@
-using System;
-
 namespace Slots.Core
 {
-    // Works out the exact RTP by checking every possible stop combination once
+    // Works out the exact return to player by checking every possible stop combination once.
+    // Both results are fractions, so 0.95 means 95%
     public static class RtpCalculator
     {
-        public static RtpReport Calculate(SlotModel model)
+        public static (double rtp, double hitFrequency) Calculate(SlotModel model)
         {
-            if (model == null) throw new ArgumentNullException(nameof(model));
-
             int[] stops = new int[model.ReelCount];
             long combinations = 0;
             long totalMultiplier = 0;
@@ -23,7 +20,7 @@ namespace Slots.Core
             }
             while (TryAdvance(stops, model));
 
-            return new RtpReport((double)totalMultiplier / combinations, (double)wins / combinations, combinations);
+            return ((double)totalMultiplier / combinations, (double)wins / combinations);
         }
 
         // Counts through the stops like an odometer, returns false after the last combination
