@@ -12,6 +12,7 @@ namespace Slots.Game
         private const string ReadyMessage = "PRESS SPIN";
         private const string SpinningMessage = "GOOD LUCK!";
         private const string NoWinMessage = "NO WIN";
+        private const string OutOfCreditsMessage = "OUT OF CREDITS";
 
         [SerializeField] private SlotGame game;
 
@@ -37,6 +38,7 @@ namespace Slots.Game
             game.OnBetChanged += SlotGame_OnBetChanged;
             game.OnSpinStarted += SlotGame_OnSpinStarted;
             game.OnSpinResolved += SlotGame_OnSpinResolved;
+            game.OnSessionRestarted += SlotGame_OnSessionRestarted;
 
             messageText.text = ReadyMessage;
             RefreshCredits();
@@ -70,9 +72,15 @@ namespace Slots.Game
             }
             else
             {
-                messageText.text = NoWinMessage;
+                messageText.text = game.IsOutOfCredits ? OutOfCreditsMessage : NoWinMessage;
             }
 
+            RefreshButtons();
+        }
+
+        private void SlotGame_OnSessionRestarted(object sender, EventArgs e)
+        {
+            messageText.text = ReadyMessage;
             RefreshButtons();
         }
 
@@ -88,8 +96,11 @@ namespace Slots.Game
 
         private void RefreshButtons()
         {
-            spinButton.interactable = game.CanSpin;
-            leverButton.interactable = game.CanSpin;
+            // Stays pressable when out of credits, since that's how the restart offer comes back
+            bool canPressSpin = game.CanSpin || game.IsOutOfCredits;
+
+            spinButton.interactable = canPressSpin;
+            leverButton.interactable = canPressSpin;
             lowerBetButton.interactable = game.CanLowerBet;
             raiseBetButton.interactable = game.CanRaiseBet;
         }
@@ -100,6 +111,7 @@ namespace Slots.Game
             game.OnBetChanged -= SlotGame_OnBetChanged;
             game.OnSpinStarted -= SlotGame_OnSpinStarted;
             game.OnSpinResolved -= SlotGame_OnSpinResolved;
+            game.OnSessionRestarted -= SlotGame_OnSessionRestarted;
         }
     }
 }

@@ -83,3 +83,4 @@ MonoBehaviour:
     - {fileID: 11400000, guid: e90f7e89d2e7487459d34aca9d7c2308, type: 2}
   startingCredits: 1000
   bets: 0a0000003200000064000000
+  bigWinMultiplier: 10

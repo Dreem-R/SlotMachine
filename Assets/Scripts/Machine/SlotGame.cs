@@ -17,6 +17,8 @@ namespace Slots.Game
             public SpinResult result;
             public int payout;
         }
+        public event EventHandler OnOutOfCredits;
+        public event EventHandler OnSessionRestarted;
 
         [SerializeField] private SlotConfigSO config;
         [SerializeField] private SlotMachine machine;
@@ -25,13 +27,14 @@ namespace Slots.Game
         private Wallet wallet;
         private IReadOnlyList<int> bets;
         private int betIndex;
+        private bool isInputBlocked;
 
         public int Credits => wallet.Balance;
         public int CurrentBet => bets[betIndex];
-        public bool IsSpinning => machine.IsSpinning;
         public bool CanSpin => !machine.IsSpinning && wallet.CanAfford(CurrentBet);
         public bool CanLowerBet => !machine.IsSpinning && betIndex > 0;
         public bool CanRaiseBet => !machine.IsSpinning && betIndex < bets.Count - 1 && wallet.CanAfford(bets[betIndex + 1]);
+        public bool IsOutOfCredits => !machine.IsSpinning && !wallet.CanAfford(bets[0]);
 
         private void Awake()
         {
@@ -45,6 +48,15 @@ namespace Slots.Game
 
         public void RequestSpin()
         {
+            if (isInputBlocked) return;
+
+            // Declining the restart leaves the player here, so pressing spin offers it again
+            if (IsOutOfCredits)
+            {
+                OnOutOfCredits?.Invoke(this, EventArgs.Empty);
+                return;
+            }
+
             if (!CanSpin) return;
 
             wallet.TryDebit(CurrentBet);
@@ -69,6 +81,20 @@ namespace Slots.Game
             OnBetChanged?.Invoke(this, EventArgs.Empty);
         }
 
+        public void SetInputBlocked(bool isBlocked)
+        {
+            isInputBlocked = isBlocked;
+        }
+
+        public void RestartSession()
+        {
+            wallet.Reset(config.StartingCredits);
+            betIndex = 0;
+
+            OnBetChanged?.Invoke(this, EventArgs.Empty);
+            OnSessionRestarted?.Invoke(this, EventArgs.Empty);
+        }
+
         private void SlotMachine_OnSpinCompleted(object sender, SlotMachine.OnSpinCompletedEventArgs e)
         {
             int payout = e.result.PayoutFor(CurrentBet);
@@ -81,6 +107,8 @@ namespace Slots.Game
                 result = e.result,
                 payout = payout
             });
+
+            if (IsOutOfCredits) OnOutOfCredits?.Invoke(this, EventArgs.Empty);
         }
 
         // A bet the player can no longer cover would leave spin disabled with no explanation

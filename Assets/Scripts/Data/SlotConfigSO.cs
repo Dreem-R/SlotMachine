@@ -23,10 +23,13 @@ namespace Slots.Game
         [SerializeField, Min(0)] private int startingCredits = 1000;
         [Tooltip("Lowest to highest")]
         [SerializeField] private int[] bets = { 10, 50, 100 };
+        [Tooltip("Wins paying at least this many times the bet get a popup")]
+        [SerializeField, Min(1)] private int bigWinMultiplier = 10;
 
         public IReadOnlyList<SymbolSO> Symbols => symbols;
         public int StartingCredits => startingCredits;
         public IReadOnlyList<int> Bets => bets;
+        public int BigWinMultiplier => bigWinMultiplier;
 
         public SlotModel BuildModel()
         {

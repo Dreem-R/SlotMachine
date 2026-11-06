@@ -33,5 +33,11 @@ namespace Slots.Core
             Balance += amount;
             OnBalanceChanged?.Invoke(this, EventArgs.Empty);
         }
+
+        public void Reset(int balance)
+        {
+            Balance = balance;
+            OnBalanceChanged?.Invoke(this, EventArgs.Empty);
+        }
     }
 }
