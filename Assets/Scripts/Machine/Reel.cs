@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using PrimeTween;
 using Slots.Core;
 using UnityEngine;
 using UnityEngine.UI;
@@ -20,11 +21,17 @@ namespace Slots.Game
         [SerializeField] private float brakingDuration = 0.7f;
         [SerializeField] private float overshoot = 1f;
 
+        [Header("Win Highlight")]
+        [SerializeField] private float winPulseScale = 1.12f;
+        [SerializeField] private float winPulseDuration = 0.35f;
+
         private ReelStrip strip;
         private IReadOnlyList<SymbolSO> symbols;
         private ReelMotion motion;
         private float elapsed;
         private int targetStop;
+
+        private RectTransform CenterCell => cells[cells.Length / 2].rectTransform;
 
         public int CurrentStop { get; private set; }
 
@@ -41,8 +48,21 @@ namespace Slots.Game
         {
             this.targetStop = targetStop;
 
+            StopWinHighlight();
+
             motion = new ReelMotion(duration, targetSpeed, accelerationDuration, brakingDuration, overshoot);
             elapsed = 0f;
+        }
+
+        public void PlayWinHighlight()
+        {
+            Tween.Scale(CenterCell, endValue: Vector3.one * winPulseScale, duration: winPulseDuration, ease: Ease.InOutSine, cycles: -1, cycleMode: CycleMode.Yoyo);
+        }
+
+        private void StopWinHighlight()
+        {
+            Tween.StopAll(onTarget: CenterCell);
+            CenterCell.localScale = Vector3.one;
         }
 
         private void Update()

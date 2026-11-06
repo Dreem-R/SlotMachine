@@ -27,6 +27,12 @@ namespace Slots.Game
         [SerializeField] private Button lowerBetButton;
         [SerializeField] private Button raiseBetButton;
 
+        [Header("Feel")]
+        [SerializeField] private float creditsCountUpDuration = 0.6f;
+        [SerializeField] private float creditsCountDownDuration = 0.25f;
+
+        private int displayedCredits;
+
         private void Start()
         {
             spinButton.onClick.AddListener(game.RequestSpin);
@@ -41,14 +47,22 @@ namespace Slots.Game
             game.OnSessionRestarted += SlotGame_OnSessionRestarted;
 
             messageText.text = ReadyMessage;
-            RefreshCredits();
+            ShowCredits(game.Credits);
             RefreshBet();
             RefreshButtons();
         }
 
         private void SlotGame_OnCreditsChanged(object sender, EventArgs e)
         {
-            RefreshCredits();
+            Tween.StopAll(onTarget: this);
+
+            if (game.Credits == displayedCredits) return;
+
+            // Winnings count up slowly so the payout feels earned, a bet comes off quickly
+            float duration = game.Credits > displayedCredits ? creditsCountUpDuration : creditsCountDownDuration;
+
+            Tween.Custom(this, startValue: displayedCredits, endValue: game.Credits, duration: duration,
+                onValueChange: (hud, value) => hud.ShowCredits(Mathf.RoundToInt(value)));
         }
 
         private void SlotGame_OnBetChanged(object sender, EventArgs e)
@@ -84,9 +98,10 @@ namespace Slots.Game
             RefreshButtons();
         }
 
-        private void RefreshCredits()
+        private void ShowCredits(int credits)
         {
-            creditsText.text = game.Credits.ToString();
+            displayedCredits = credits;
+            creditsText.text = credits.ToString();
         }
 
         private void RefreshBet()

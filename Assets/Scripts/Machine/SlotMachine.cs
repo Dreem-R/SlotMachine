@@ -32,8 +32,14 @@ namespace Slots.Game
             SlotModel model = config.BuildModel();
             engine = new SlotEngine(model, new SecureRandomSource());
 
-            // The machine opens on random symbols rather than always looking the same
-            SpinResult openingResult = engine.Spin();
+            // The machine opens on random symbols, but never a matching row, since that would
+            // look like a win that didn't pay
+            SpinResult openingResult;
+            do
+            {
+                openingResult = engine.Spin();
+            }
+            while (openingResult.IsWin);
 
             for (int i = 0; i < reels.Length; i++)
             {
@@ -64,6 +70,14 @@ namespace Slots.Game
 
             if (reelsStillSpinning == 0)
             {
+                if (currentResult.IsWin)
+                {
+                    foreach (Reel reel in reels)
+                    {
+                        reel.PlayWinHighlight();
+                    }
+                }
+
                 OnSpinCompleted?.Invoke(this, new OnSpinCompletedEventArgs
                 {
                     result = currentResult
