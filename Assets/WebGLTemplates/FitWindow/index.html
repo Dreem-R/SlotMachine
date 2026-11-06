@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no">
+  <title>{{{ PRODUCT_NAME }}}</title>
+  <style>
+    html, body { margin: 0; height: 100%; overflow: hidden; background: #000; }
+    body { display: flex; align-items: center; justify-content: center; }
+
+    /* The largest 16:9 box that fits the window, so the art always looks as designed */
+    #unity-canvas { display: block; width: min(100vw, calc(100vh * 16 / 9)); height: min(100vh, calc(100vw * 9 / 16)); outline: none; }
+
+    #loading { position: fixed; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #ffd66b; font: bold 20px sans-serif; }
+    #progress-track { width: 280px; height: 10px; margin-top: 14px; background: #2a2560; }
+    #progress-fill { width: 0; height: 100%; background: #ffd66b; }
+
+    #fullscreen-button { position: fixed; right: 10px; bottom: 10px; display: none; padding: 6px 10px; border: 1px solid #8f9fe8; border-radius: 4px; background: rgba(20, 16, 60, 0.8); color: #fff; font: 13px sans-serif; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <canvas id="unity-canvas" tabindex="-1"></canvas>
+  <div id="loading">
+    <span id="loading-text">Loading...</span>
+    <div id="progress-track"><div id="progress-fill"></div></div>
+  </div>
+  <button id="fullscreen-button" type="button">Fullscreen</button>
+
+  <script src="Build/{{{ LOADER_FILENAME }}}"></script>
+  <script>
+    const canvas = document.querySelector("#unity-canvas");
+    const loading = document.querySelector("#loading");
+    const progressFill = document.querySelector("#progress-fill");
+    const fullscreenButton = document.querySelector("#fullscreen-button");
+
+    // The whole page goes fullscreen rather than the canvas, so the game stays 16:9 on any screen
+    fullscreenButton.addEventListener("click", () => {
+      if (document.fullscreenElement) {
+        document.exitFullscreen();
+      } else {
+        document.documentElement.requestFullscreen();
+      }
+
+      // Hand focus back, otherwise Space would press this button instead of spinning
+      canvas.focus();
+    });
+
+    document.addEventListener("fullscreenchange", () => {
+      fullscreenButton.textContent = document.fullscreenElement ? "Exit fullscreen" : "Fullscreen";
+    });
+
+    createUnityInstance(canvas, {
+      dataUrl: "Build/{{{ DATA_FILENAME }}}",
+      frameworkUrl: "Build/{{{ FRAMEWORK_FILENAME }}}",
+      codeUrl: "Build/{{{ CODE_FILENAME }}}",
+      streamingAssetsUrl: "StreamingAssets",
+      companyName: {{{ JSON.stringify(COMPANY_NAME) }}},
+      productName: {{{ JSON.stringify(PRODUCT_NAME) }}},
+      productVersion: {{{ JSON.stringify(PRODUCT_VERSION) }}},
+    }, (progress) => {
+      progressFill.style.width = `${progress * 100}%`;
+    }).then(() => {
+      loading.remove();
+      fullscreenButton.style.display = "block";
+      // So the Space key works straight away, without clicking the game first
+      canvas.focus();
+    }).catch((error) => {
+      document.querySelector("#loading-text").textContent = `Couldn't load the game: ${error}`;
+    });
+  </script>
+</body>
+</html>
