@@ -1,7 +1,6 @@
 using System;
 using Slots.Core;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 namespace Slots.Game
 {
@@ -40,14 +39,6 @@ namespace Slots.Game
             {
                 reels[i].Initialize(model.GetReel(i), config.Symbols, openingResult.Stops[i]);
                 reels[i].OnStopped += Reel_OnStopped;
-            }
-        }
-
-        private void Update()
-        {
-            if (Keyboard.current != null && Keyboard.current.spaceKey.wasPressedThisFrame)
-            {
-                Spin();
             }
         }
 

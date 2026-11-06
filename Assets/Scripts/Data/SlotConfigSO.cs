@@ -19,7 +19,14 @@ namespace Slots.Game
         [SerializeField] private SymbolSO[] symbols;
         [SerializeField] private ReelStripDefinition[] reels;
 
+        [Header("Session")]
+        [SerializeField, Min(0)] private int startingCredits = 1000;
+        [Tooltip("Lowest to highest")]
+        [SerializeField] private int[] bets = { 10, 50, 100 };
+
         public IReadOnlyList<SymbolSO> Symbols => symbols;
+        public int StartingCredits => startingCredits;
+        public IReadOnlyList<int> Bets => bets;
 
         public SlotModel BuildModel()
         {
