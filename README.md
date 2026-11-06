@@ -45,6 +45,28 @@ To run the tests, use Window > General > Test Runner > EditMode.
 - **Logic separate from visuals.** Everything in `Scripts/Core` is plain C# with no Unity dependency. The game and UI talk through C# events, so the UI can change without touching the rules.
 - **Data-driven setup.** Symbols, reel strips, payouts, bets and starting credits are ScriptableObject assets. The on-screen paytable is built from the same asset, so it can't disagree with what the game pays.
 
+## Notes
+
+**Decisions where the brief left things open**
+
+- **Win rule:** the brief says a player wins when all slots match. The reels show three rows, so I made only the middle row count, which keeps the rule easy to see.
+- **Paytable and odds:** the brief asks for payouts but gives no numbers, so these are my own design. I aimed for a win often enough to keep play going, with a rare 200x top prize.
+- **Bets:** 10, 50 and 100 come from the reference GIF. The GIF starts on a small balance, so I chose 1000 starting credits to give longer sessions.
+- **Win popup:** only wins of 10x or more get a popup, about 1 spin in 32. A popup on every win would interrupt play every few spins.
+- **Running out of credits:** if a loss leaves the current bet unaffordable, it drops to one the player can cover. Below the lowest bet, the game offers a fresh start.
+
+**Left out**
+
+- **Bonus features:** these were optional, and I chose to finish the core game properly instead. A free spin on exactly two Sevens would fit the supplied art, and I'd add it next.
+- **Audio:** no sounds were supplied, so the game is silent.
+
+**Worth knowing**
+
+- **Reel strip jump:** once a reel is up to speed, its strip jumps once so it arrives exactly on the chosen stop. It can't be seen at that speed and never affects the result, and it means every spin takes the same time.
+- **Opening symbols:** the machine opens on random symbols but never a matching row, because that would look like a win that didn't pay.
+- **Lever:** the supplied art has two frames, so the lever snaps between up and down rather than sliding.
+- **Demo:** `docs/` is a copy of the WebGL build, so it only changes when it's rebuilt and pushed.
+
 ## Project structure
 
 ```
