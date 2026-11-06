@@ -14,6 +14,18 @@ TextureImporter:
   - first:
       213: -5725855589605792212
     second: ButtonNext_3
+  - first:
+      213: 2569844488649902475
+    second: ButtonNext_Normal
+  - first:
+      213: 2135941530033333325
+    second: ButtonNext_Highlighted
+  - first:
+      213: 2595643934966665859
+    second: ButtonNext_Pressed
+  - first:
+      213: 4801610433081813867
+    second: ButtonNext_Disabled
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -84,7 +96,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -135,89 +147,89 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ButtonNext_0
+      name: ButtonNext_Normal
       rect:
         serializedVersion: 2
-        x: 18
-        y: 780
-        width: 221
-        height: 225
+        x: 0
+        y: 768
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 653460152c875b920800000000000000
-      internalID: 3005441102318027606
+      spriteID: b8909f162fbe9a320800000000000000
+      internalID: 2569844488649902475
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ButtonNext_1
+      name: ButtonNext_Highlighted
       rect:
         serializedVersion: 2
-        x: 18
-        y: 524
-        width: 221
-        height: 225
+        x: 0
+        y: 512
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 61979c8927757e5a0800000000000000
-      internalID: -6492124188130051818
+      spriteID: d4424ae318364ad10800000000000000
+      internalID: 2135941530033333325
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ButtonNext_2
+      name: ButtonNext_Pressed
       rect:
         serializedVersion: 2
-        x: 18
-        y: 267
-        width: 221
-        height: 226
+        x: 0
+        y: 256
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 78be3b93111d23780800000000000000
-      internalID: -8704665257841005689
+      spriteID: 382d5131864950420800000000000000
+      internalID: 2595643934966665859
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ButtonNext_3
+      name: ButtonNext_Disabled
       rect:
         serializedVersion: 2
-        x: 18
-        y: 13
-        width: 221
-        height: 224
+        x: 0
+        y: 0
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c26ac5a9daca980b0800000000000000
-      internalID: -5725855589605792212
+      spriteID: b6ba6a5bf3fb2a240800000000000000
+      internalID: 4801610433081813867
       vertices: []
       indices: 
       edges: []
@@ -240,6 +252,10 @@ TextureImporter:
       ButtonNext_1: -6492124188130051818
       ButtonNext_2: -8704665257841005689
       ButtonNext_3: -5725855589605792212
+      ButtonNext_Disabled: 4801610433081813867
+      ButtonNext_Highlighted: 2135941530033333325
+      ButtonNext_Normal: 2569844488649902475
+      ButtonNext_Pressed: 2595643934966665859
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

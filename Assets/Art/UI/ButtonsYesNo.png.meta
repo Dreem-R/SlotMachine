@@ -20,6 +20,24 @@ TextureImporter:
   - first:
       213: -4051969788474744338
     second: ButtonsYesNo_5
+  - first:
+      213: -3041773109092377304
+    second: ButtonYes_Normal
+  - first:
+      213: -2693242524459132030
+    second: ButtonYes_Highlighted
+  - first:
+      213: 3896324496887703572
+    second: ButtonYes_Pressed
+  - first:
+      213: -6238897694056197442
+    second: ButtonNo_Normal
+  - first:
+      213: 5034741253819499144
+    second: ButtonNo_Highlighted
+  - first:
+      213: -6421654562506448333
+    second: ButtonNo_Pressed
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -90,7 +108,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -141,133 +159,133 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ButtonsYesNo_0
+      name: ButtonYes_Normal
       rect:
         serializedVersion: 2
-        x: 69
-        y: 464
-        width: 373
-        height: 144
+        x: 70
+        y: 465
+        width: 371
+        height: 142
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a39324855445bcc20800000000000000
-      internalID: 3227766214751303994
+      spriteID: 82d9639297379c5d0800000000000000
+      internalID: -3041773109092377304
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ButtonsYesNo_1
+      name: ButtonYes_Highlighted
       rect:
         serializedVersion: 2
-        x: 547
-        y: 464
-        width: 373
-        height: 144
+        x: 70
+        y: 274
+        width: 371
+        height: 142
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2e27f554b7d85d590800000000000000
-      internalID: -7650052831434542366
+      spriteID: 28b13a3813eaf9ad0800000000000000
+      internalID: -2693242524459132030
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ButtonsYesNo_2
+      name: ButtonYes_Pressed
       rect:
         serializedVersion: 2
-        x: 69
-        y: 273
-        width: 373
-        height: 144
+        x: 70
+        y: 83
+        width: 371
+        height: 142
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6c05f0e77fd2ef2f0800000000000000
-      internalID: -937261131451379514
+      spriteID: 418e4ae7c76821630800000000000000
+      internalID: 3896324496887703572
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ButtonsYesNo_3
+      name: ButtonNo_Normal
       rect:
         serializedVersion: 2
-        x: 547
-        y: 273
-        width: 373
-        height: 144
+        x: 548
+        y: 465
+        width: 371
+        height: 142
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 27d6d68016383d370800000000000000
-      internalID: 8346158987224116594
+      spriteID: eb2d6c33a9bfa69a0800000000000000
+      internalID: -6238897694056197442
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ButtonsYesNo_4
+      name: ButtonNo_Highlighted
       rect:
         serializedVersion: 2
-        x: 69
-        y: 82
-        width: 373
-        height: 144
+        x: 548
+        y: 274
+        width: 371
+        height: 142
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c7059f6c7735e5030800000000000000
-      internalID: 3485314935535784060
+      spriteID: 8828ae1ce7efed540800000000000000
+      internalID: 5034741253819499144
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ButtonsYesNo_5
+      name: ButtonNo_Pressed
       rect:
         serializedVersion: 2
-        x: 547
-        y: 82
-        width: 373
-        height: 144
+        x: 548
+        y: 83
+        width: 371
+        height: 142
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ee1295512f284c7c0800000000000000
-      internalID: -4051969788474744338
+      spriteID: 3326983e233b1e6a0800000000000000
+      internalID: -6421654562506448333
       vertices: []
       indices: 
       edges: []
@@ -286,6 +304,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
+      ButtonNo_Highlighted: 5034741253819499144
+      ButtonNo_Normal: -6238897694056197442
+      ButtonNo_Pressed: -6421654562506448333
+      ButtonYes_Highlighted: -2693242524459132030
+      ButtonYes_Normal: -3041773109092377304
+      ButtonYes_Pressed: 3896324496887703572
       ButtonsYesNo_0: 3227766214751303994
       ButtonsYesNo_1: -7650052831434542366
       ButtonsYesNo_2: -937261131451379514

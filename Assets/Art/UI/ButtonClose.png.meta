@@ -14,6 +14,18 @@ TextureImporter:
   - first:
       213: 831363124489840318
     second: ButtonClose_3
+  - first:
+      213: -6093185683862982505
+    second: ButtonClose_Normal
+  - first:
+      213: -8105887656336473702
+    second: ButtonClose_Highlighted
+  - first:
+      213: 3319176315251452650
+    second: ButtonClose_Pressed
+  - first:
+      213: -8464760417576164579
+    second: ButtonClose_Disabled
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -84,7 +96,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -135,89 +147,89 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ButtonClose_0
+      name: ButtonClose_Normal
       rect:
         serializedVersion: 2
-        x: 14
-        y: 780
-        width: 227
-        height: 226
+        x: 0
+        y: 768
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2727dc68b1c2aae00800000000000000
-      internalID: 1056705559309152882
+      spriteID: 790f9d257e7a07ba0800000000000000
+      internalID: -6093185683862982505
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ButtonClose_1
+      name: ButtonClose_Highlighted
       rect:
         serializedVersion: 2
-        x: 14
-        y: 523
-        width: 226
-        height: 227
+        x: 0
+        y: 512
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 54fcc2895eb8e4390800000000000000
-      internalID: -7832168883733868731
+      spriteID: a9147d69f1a128f80800000000000000
+      internalID: -8105887656336473702
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ButtonClose_2
+      name: ButtonClose_Pressed
       rect:
         serializedVersion: 2
-        x: 14
-        y: 268
-        width: 227
-        height: 225
+        x: 0
+        y: 256
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7057326801c947270800000000000000
-      internalID: 8247388412406101255
+      spriteID: aeae371e545101e20800000000000000
+      internalID: 3319176315251452650
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ButtonClose_3
+      name: ButtonClose_Disabled
       rect:
         serializedVersion: 2
-        x: 15
-        y: 11
-        width: 227
-        height: 226
+        x: 0
+        y: 0
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: eb663926b58998b00800000000000000
-      internalID: 831363124489840318
+      spriteID: d13e5999f31278a80800000000000000
+      internalID: -8464760417576164579
       vertices: []
       indices: 
       edges: []
@@ -240,6 +252,10 @@ TextureImporter:
       ButtonClose_1: -7832168883733868731
       ButtonClose_2: 8247388412406101255
       ButtonClose_3: 831363124489840318
+      ButtonClose_Disabled: -8464760417576164579
+      ButtonClose_Highlighted: -8105887656336473702
+      ButtonClose_Normal: -6093185683862982505
+      ButtonClose_Pressed: 3319176315251452650
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -14,6 +14,18 @@ TextureImporter:
   - first:
       213: -8544497029889987232
     second: ButtonPrevious_3
+  - first:
+      213: -5950500141222953351
+    second: ButtonPrevious_Normal
+  - first:
+      213: -3192697190190886087
+    second: ButtonPrevious_Highlighted
+  - first:
+      213: 893724369741049885
+    second: ButtonPrevious_Pressed
+  - first:
+      213: 2230810190327275524
+    second: ButtonPrevious_Disabled
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -84,7 +96,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -135,89 +147,89 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ButtonPrevious_0
+      name: ButtonPrevious_Normal
       rect:
         serializedVersion: 2
-        x: 17
-        y: 780
-        width: 221
-        height: 225
+        x: 0
+        y: 768
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7b9031bdcb4461480800000000000000
-      internalID: -8928873633295431241
+      spriteID: 97e7e7e06a39b6da0800000000000000
+      internalID: -5950500141222953351
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ButtonPrevious_1
+      name: ButtonPrevious_Highlighted
       rect:
         serializedVersion: 2
-        x: 18
-        y: 523
-        width: 221
-        height: 226
+        x: 0
+        y: 512
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e199c3381d55ab030800000000000000
-      internalID: 3511213217827035422
+      spriteID: 933d84732d241b3d0800000000000000
+      internalID: -3192697190190886087
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ButtonPrevious_2
+      name: ButtonPrevious_Pressed
       rect:
         serializedVersion: 2
-        x: 18
-        y: 267
-        width: 221
-        height: 226
+        x: 0
+        y: 256
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 17f394642eea94ac0800000000000000
-      internalID: -3870370117883183247
+      spriteID: d1076814495276c00800000000000000
+      internalID: 893724369741049885
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ButtonPrevious_3
+      name: ButtonPrevious_Disabled
       rect:
         serializedVersion: 2
-        x: 18
-        y: 12
-        width: 221
-        height: 225
+        x: 0
+        y: 0
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 06de605d839db6980800000000000000
-      internalID: -8544497029889987232
+      spriteID: 40067cb7c0e65fe10800000000000000
+      internalID: 2230810190327275524
       vertices: []
       indices: 
       edges: []
@@ -240,6 +252,10 @@ TextureImporter:
       ButtonPrevious_1: 3511213217827035422
       ButtonPrevious_2: -3870370117883183247
       ButtonPrevious_3: -8544497029889987232
+      ButtonPrevious_Disabled: 2230810190327275524
+      ButtonPrevious_Highlighted: -3192697190190886087
+      ButtonPrevious_Normal: -5950500141222953351
+      ButtonPrevious_Pressed: 893724369741049885
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
