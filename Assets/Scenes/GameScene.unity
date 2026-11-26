@@ -185,7 +185,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4285257471
   m_fontColor: {r: 1, g: 0.84, b: 0.42, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -198,7 +198,7 @@ MonoBehaviour:
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: 0
+  m_TextStyleHashCode: -1183493901
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
@@ -547,7 +547,7 @@ MonoBehaviour:
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: 0
+  m_TextStyleHashCode: -1183493901
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
@@ -1520,6 +1520,8 @@ MonoBehaviour:
   accelerationDuration: 0.25
   brakingDuration: 0.7
   overshoot: 1
+  winPulseScale: 1.12
+  winPulseDuration: 0.35
 --- !u!1 &400356986
 GameObject:
   m_ObjectHideFlags: 0
@@ -1749,7 +1751,7 @@ MonoBehaviour:
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: 0
+  m_TextStyleHashCode: -1183493901
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
@@ -3570,8 +3572,11 @@ MonoBehaviour:
   game: {fileID: 1771661468}
   canvasGroup: {fileID: 1081047896}
   panel: {fileID: 155739908}
-  showDuration: 0.3
-  hideDuration: 0.15
+  widenDuration: 0.15
+  openDuration: 0.35
+  closeDuration: 0.2
+  narrowDuration: 0.12
+  dimDuration: 0.1
   config: {fileID: 11400000, guid: f3b56fb9b17473e46bf7a6a53e1bc07b, type: 2}
   bodyText: {fileID: 486450492}
   yesButton: {fileID: 182803355}
@@ -4284,8 +4289,11 @@ MonoBehaviour:
   game: {fileID: 1771661468}
   canvasGroup: {fileID: 1303532039}
   panel: {fileID: 381609296}
-  showDuration: 0.3
-  hideDuration: 0.15
+  widenDuration: 0.15
+  openDuration: 0.35
+  closeDuration: 0.2
+  narrowDuration: 0.12
+  dimDuration: 0.1
   config: {fileID: 11400000, guid: f3b56fb9b17473e46bf7a6a53e1bc07b, type: 2}
   gameInput: {fileID: 1771661469}
   symbolIcons:
@@ -5363,6 +5371,8 @@ MonoBehaviour:
   accelerationDuration: 0.25
   brakingDuration: 0.7
   overshoot: 1
+  winPulseScale: 1.12
+  winPulseDuration: 0.35
 --- !u!1 &1939161910
 GameObject:
   m_ObjectHideFlags: 0
@@ -5426,6 +5436,8 @@ MonoBehaviour:
   leverButton: {fileID: 1763647802}
   lowerBetButton: {fileID: 1185256046}
   raiseBetButton: {fileID: 2128993082}
+  creditsCountUpDuration: 0.6
+  creditsCountDownDuration: 0.25
 --- !u!1 &1946787366
 GameObject:
   m_ObjectHideFlags: 0
@@ -5704,7 +5716,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4285257471
   m_fontColor: {r: 1, g: 0.84, b: 0.42, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -5717,7 +5729,7 @@ MonoBehaviour:
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: 0
+  m_TextStyleHashCode: -1183493901
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
@@ -5952,6 +5964,8 @@ MonoBehaviour:
   accelerationDuration: 0.25
   brakingDuration: 0.7
   overshoot: 1
+  winPulseScale: 1.12
+  winPulseDuration: 0.35
 --- !u!224 &2085936143
 RectTransform:
   m_ObjectHideFlags: 0

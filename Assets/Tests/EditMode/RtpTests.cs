@@ -33,6 +33,8 @@ namespace Slots.Core.Tests
 
             (double rtp, double hitFrequency) = RtpCalculator.Calculate(TestModels.CreateStandardMachine());
 
+            TestContext.WriteLine($"Exact RTP: {rtp * 100:F3}%  |  Hit frequency: {hitFrequency * 100:F2}%");
+
             Assert.That(expectedRtp, Is.EqualTo(0.93575).Within(1e-12));
             Assert.That(rtp, Is.EqualTo(expectedRtp).Within(1e-12));
             Assert.That(hitFrequency, Is.EqualTo(0.1225).Within(1e-12));
@@ -59,7 +61,10 @@ namespace Slots.Core.Tests
                 if (result.IsWin) wins++;
             }
 
-            Assert.That((double)totalMultiplier / Spins, Is.EqualTo(0.93575).Within(RtpTolerance));
+            double simulatedRtp = (double)totalMultiplier / Spins;
+            TestContext.WriteLine($"Simulated RTP over {Spins:N0} spins: {simulatedRtp * 100:F2}% (exact is 93.575%)  |  Hit frequency: {(double)wins / Spins * 100:F2}%");
+
+            Assert.That(simulatedRtp, Is.EqualTo(0.93575).Within(RtpTolerance));
             Assert.That((double)wins / Spins, Is.EqualTo(0.1225).Within(HitTolerance));
         }
     }
